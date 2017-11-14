@@ -45,7 +45,8 @@ void Update()
         if (targetRect.Overlaps(bulletRect)) {
             //score += 1;         // スコアの加算
             // 点数＋１００
-            score += 100;
+            score += 100; // 点数＋１００ HW16A029
+
             bulletPos.x = -999; // 弾を発射可能な状態に戻す
         }
     }
@@ -74,9 +75,9 @@ void Update()
     SetFont("nicoca_v1.ttf", 85.0f);
     //大きさ変更＋桁数変更
     //DrawText(FormatString("%02d", score), Vector2(-319, 199), Color::black);
-    DrawText(FormatString("%05d", score), Vector2(-309, 159), Color::black);
+    DrawText(FormatString("%05d", score), Vector2(-309, 159), Color::black); //HW16A029　大久保水貴
     //DrawText(FormatString("%02d", score), Vector2(-320, 200), Color::white);
-    DrawText(FormatString("%05d", score), Vector2(-310, 16 0), Color::white);
+    DrawText(FormatString("%05d", score), Vector2(-310, 160), Color::white); //HW16A029 大久保水貴
  
      
    
