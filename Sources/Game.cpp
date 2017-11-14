@@ -67,16 +67,15 @@ void Update()
     // ターゲットの描画
     FillRect(targetRect, Color::red);
 
-    /* // スコアの描画
-    SetFont("nicoca_v1.ttf", 20.0f);
-    DrawText(FormatString("%02d", score), Vector2(-319, 199), Color::black);
-    DrawText(FormatString("%02d", score), Vector2(-320, 200), Color::white);
-    */
-     
-    // スコアの描画 大きさ変更（E）　大久保
+    // スコアの描画  大きさ変更(E)
+    //SetFont("nicoca_v1.ttf", 20.0f);
     SetFont("nicoca_v1.ttf", 85.0f);
+    //DrawText(FormatString("%02d", score), Vector2(-319, 199), Color::black);
     DrawText(FormatString("%02d", score), Vector2(-319, 169), Color::black);
+    //DrawText(FormatString("%02d", score), Vector2(-320, 200), Color::white);
     DrawText(FormatString("%02d", score), Vector2(-320, 170), Color::white);
-
+ 
+     
+   
 }
 
