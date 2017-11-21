@@ -17,6 +17,7 @@ Vector2 bulletPos;      //!< 弾の位置
 Rect    targetRect;     //!< ターゲットの矩形
 int     score;          //!< スコア
 
+Rect outsideRect;       //!< 画面右端の判定位置
 
 // ゲーム開始時に呼ばれる関数です。
 void Start()
@@ -51,6 +52,11 @@ void Update()
 
             bulletPos.x = -999; // 弾を発射可能な状態に戻す
             PlaySound("se_maoudamashii_explosion06.mp3");
+        }
+        //ターゲットが画面右の外に出たときの処理
+        if (outsideRect.Overlaps(bulletRect)) {
+            
+            bulletPos.x = -999; // 弾を発射可能な状態に戻す
         }
     }
 
