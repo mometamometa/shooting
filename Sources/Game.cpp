@@ -26,6 +26,7 @@ void Start()
     targetRect = Rect(80, -140, 40, 40);
     bulletPos.x = -999;
     score = 0;
+    PlayBGM("bgm_maoudamashii_8bit07.mp3");
 }
 
 // 1/60秒ごとに呼ばれる関数です。モデルの更新と画面の描画を行います。
@@ -34,6 +35,7 @@ void Update()
     // 弾の発射
     if (bulletPos.x <= -999 && Input::GetKeyDown(KeyMask::Space)) {
         bulletPos = cannonPos + Vector2(50, 10);
+        PlaySound("se_maoudamashii_system27.mp3");
     }
 
     // 弾の移動
@@ -48,6 +50,7 @@ void Update()
             score += 100; // 点数＋１００ HW16A029
 
             bulletPos.x = -999; // 弾を発射可能な状態に戻す
+            PlaySound("se_maoudamashii_explosion06.mp3");
         }
     }
 
