@@ -29,7 +29,7 @@ void Start()
     score = 0;
     PlayBGM("bgm_maoudamashii_8bit07.mp3");
 }
-
+int frag =1;
 // 1/60秒ごとに呼ばれる関数です。モデルの更新と画面の描画を行います。
 void Update()
 {
@@ -38,18 +38,18 @@ void Update()
         bulletPos = cannonPos + Vector2(50, 10);
         PlaySound("se_maoudamashii_system27.mp3");
     }
-
+      
     // 弾の移動
     if (bulletPos.x > -999) {
         bulletPos.x += 200 * Time::deltaTime;
-
+        
         // ターゲットと弾の当たり判定
         Rect bulletRect(bulletPos, Vector2(32, 20));
         if (targetRect.Overlaps(bulletRect)) {
             //score += 1;         // スコアの加算
             // 点数＋１００
             score += 100; // 点数＋１００ HW16A029
-
+            
             bulletPos.x = -999; // 弾を発射可能な状態に戻す
             PlaySound("se_maoudamashii_explosion06.mp3");
         }
@@ -59,35 +59,34 @@ void Update()
             bulletPos.x = -999; // 弾を発射可能な状態に戻す
         }
     }
-
+    
     // 背景の描画
     Clear(Color::cyan);
     FillRect(Rect(-320, -240, 640, 100), Color::green);
-
+    
     // 雲の描画
     DrawImage("cloud1.png", cloudPos);
     if (cloudPos.x > -999) {
         cloudPos.x += 60 * Time::deltaTime;
     }
-     if (cloudPos.x >= 320) {
-         cloudPos.x = -550;
-     }
+    if (cloudPos.x >= 320) {
+        cloudPos.x = -550;
+    }
     // 弾の描画
     if (bulletPos.x > -999) {
         DrawImage("bullet.png", bulletPos);
     }
-
+    
     // 砲台の描画
     FillRect(Rect(cannonPos.x-10, -140, 20, 100), Color::blue);
     DrawImage("cannon.png", cannonPos);
-
-　　// 砲台の移動
+    // 砲台の移動
     if (frag == 1) {
         cannonPos.y += 1;
         if (cannonPos.y > -60) {
-        frag = -1;
-    
-
+            frag = -1;
+            
+            
         }
     }
     if (frag == -1){
@@ -95,12 +94,12 @@ void Update()
         if (cannonPos.y < -150) {
             frag = 1;
         }
-
+        
     }
-
+    
     // ターゲットの描画
     FillRect(targetRect, Color::red);
-
+    
     // スコアの描画  大きさ変更(E) (F)
     //SetFont("nicoca_v1.ttf", 20.0f);
     SetFont("nicoca_v1.ttf", 85.0f);
@@ -109,8 +108,8 @@ void Update()
     DrawText(FormatString("%05d", score), Vector2(-309, 159), Color::black); //HW16A029　大久保水貴
     //DrawText(FormatString("%02d", score), Vector2(-320, 200), Color::white);
     DrawText(FormatString("%05d", score), Vector2(-310, 160), Color::white); //HW16A029 大久保水貴
- 
-     
-   
+    
+    
+    
 }
 
