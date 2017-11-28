@@ -81,6 +81,23 @@ void Update()
     FillRect(Rect(cannonPos.x-10, -140, 20, 100), Color::blue);
     DrawImage("cannon.png", cannonPos);
 
+　　// 砲台の移動
+    if (frag == 1) {
+        cannonPos.y += 1;
+        if (cannonPos.y > -60) {
+        frag = -1;
+    
+
+        }
+    }
+    if (frag == -1){
+        cannonPos.y -= 1;
+        if (cannonPos.y < -150) {
+            frag = 1;
+        }
+
+    }
+
     // ターゲットの描画
     FillRect(targetRect, Color::red);
 
