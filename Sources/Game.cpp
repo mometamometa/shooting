@@ -15,9 +15,10 @@ Vector2 cloudPos;       //!< 雲の位置
 Vector2 cannonPos;      //!< 砲台の位置
 Vector2 bulletPos;      //!< 弾の位置
 Rect    targetRect;     //!< ターゲットの矩形
+Rect outsideRect;       //!< 画面右端の判定位置
 int     score;          //!< スコア
 
-Rect outsideRect;       //!< 画面右端の判定位置
+
 
 // ゲーム開始時に呼ばれる関数です。
 void Start()
@@ -25,6 +26,8 @@ void Start()
     cloudPos = Vector2(-320, 100);
     cannonPos = Vector2(-310, -150);
     targetRect = Rect(280, -140, 40, 40);
+    outsideRect = Rect(320, -240, 320, 240);
+    
     bulletPos.x = -999;
     score = 0;
     PlayBGM("bgm_maoudamashii_8bit07.mp3");
