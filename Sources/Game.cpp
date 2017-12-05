@@ -15,7 +15,7 @@ Vector2 cloudPos;       //!< 雲の位置
 Vector2 cannonPos;      //!< 砲台の位置
 Vector2 bulletPos;      //!< 弾の位置
 Rect    targetRect;     //!< ターゲットの矩形
-Rect outsideRect;       //!< 画面右端の判定位置
+Rect    outsideRect;    //!< 画面右端の判定位置
 int     score;          //!< スコア
 
 
@@ -49,8 +49,7 @@ void Update()
         // ターゲットと弾の当たり判定
         Rect bulletRect(bulletPos, Vector2(32, 20));
         if (targetRect.Overlaps(bulletRect)) {
-            //score += 1;         // スコアの加算
-            // 点数＋１００
+              // 点数＋１００
             score += 100; // 点数＋１００ HW16A029
             
             bulletPos.x = -999; // 弾を発射可能な状態に戻す
